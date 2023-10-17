@@ -23,32 +23,18 @@ class SceneA extends Phaser.Scene {
 
     let spriteAsset = "";
     switch(this.personaggio) {
-        case PERSONAGGIO_ELVIS:
-            spriteAsset = "elvis.png";
+        case PLAYER_MALE:
+            spriteAsset = "male.png";
             break;
-        case PERSONAGGIO_VALENTINA:
+        case PLAYER_GIRL:
         default:
-            spriteAsset = "valentina.png";
+            spriteAsset = "female.png";
     }
 
     this.load.spritesheet('dude', 'assets/' + spriteAsset, {
         frameWidth: 48,
         frameHeight: 62
     });
-
-
-    // if(this.personaggio == PERSONAGGIO_ELVIS){
-    //     this.load.spritesheet('dude', 'assets/SpriteElvis.png', {
-    //         frameWidth: 48,
-    //         frameHeight: 72
-    //     });
-    // }
-    // else{
-    //     this.load.spritesheet('dude', 'assets/vale2.png', {
-    //         frameWidth: 48,
-    //         frameHeight: 72
-    //     });
-    // }
    
 }
 
@@ -78,9 +64,6 @@ class SceneA extends Phaser.Scene {
     this.physics.add.collider(this.mostro2, platforms);
     this.physics.add.collider(this.mostro3, platforms);
 
-    //this.cameras.follow(this.player);
-    // this.cameras.main.height = 1500;
-    // this.cameras.main.width = 1800;
     this.cameras.main.setBounds(0, 0, 1400, 1100);
     this.physics.world.setBounds(0, 0, 1400, 1100);
     this.cameras.main.startFollow(this.player, true, 0.09, 0.09);
